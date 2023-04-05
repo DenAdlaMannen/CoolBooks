@@ -1,0 +1,23 @@
+1. As a user I want to the homepage to display random books with information. So I can see what it available and be inspired.
+
+2. As a user I want to be able to login to the site. So I can make more actions.
+
+3. As a user I want there to be a menu, in order for me to navigate.
+
+4. As an admin I want to be able to add a book to the page. So the users can engage with even more content.
+
+5. As a user I want there to be a header which displays the newest/highest rated book(s). So I can see whatever.
+
+6. As an admin I want the information displayed on the first page to be an image overlay slide (top to bottom). In order to save on screen real estate.
+
+7. As an admin I want there to be the an extrea menu item with the name of: Admin page
+
+8. As a user I want to be able to rate a book.
+
+9. As a user I want to be able to write e review of a book.
+
+10. As an admin when I click the "Admin Page" I want there to be a nav-bar with options to edit Books, Authors, Genre and Reviews.
+
+11. As an admin I want to have an add-button that takes me to a new page,  in order to add books, authors and genres.
+
+12.
