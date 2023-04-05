@@ -4,3 +4,6 @@ Variabler regler, namnen skall vara följande
 
 *Beskrivande 
 *andraBokstavenIVariablen skall vara Camelcase
+
+
+--------------
