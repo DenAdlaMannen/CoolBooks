@@ -2,5 +2,5 @@ Regler för CoolBooks Slutuppgift
 
 Variabler regler, namnen skall vara följande
 
-*Förklarande 
-*andraBokstavenIVariablen skall vara uppercase
+*Beskrivande 
+*andraBokstavenIVariablen skall vara Camelcase
