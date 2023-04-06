@@ -14,10 +14,32 @@
 
 8. As a user I want to be able to rate a book.
 
-9. As a user I want to be able to write e review of a book.
+9. As a user I want to be able to write a review of a book.
 
 10. As an admin when I click the "Admin Page" I want there to be a nav-bar with options to edit Books, Authors, Genre and Reviews.
 
 11. As an admin I want to have an add-button that takes me to a new page,  in order to add books, authors and genres.
 
-12.
+12. As a user I want to be able to log out of my account.
+
+13. As a system dev I want there to be a working database that will handle information.
+
+14. As an admin I want to be able to add/update a new book. So that I can expande the service.
+
+15. As an admin I want to be able to delete/update a user review.
+
+16. As an admin I want to add/update an author. So that I can expande the service.
+
+17. As an admin I want to add/update a genre. So that I can expande the service.
+
+18. As an admin, when I click one of the edit buttons in the admin page, I want to be taken to an overview page.
+
+19. As a user I want the book I am reviewing to show it's information. So I can make sure it's the right book.
+
+20. As a user I want my nickname to be displayed while I'm writing the review.
+
+21. As a user I want to be able to see the nick names of the users who have written reviews.
+
+22. As an admin I want to be able to add new users.
+
+(23. As sys dev I want the admin1 to not be deleted from the system.)
