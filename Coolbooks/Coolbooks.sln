@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coolbooks", "Coolbooks\Coolbooks.csproj", "{72600356-F27D-45BD-BBEB-807AC3724AFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72600356-F27D-45BD-BBEB-807AC3724AFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72600356-F27D-45BD-BBEB-807AC3724AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72600356-F27D-45BD-BBEB-807AC3724AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72600356-F27D-45BD-BBEB-807AC3724AFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7DA5912-1B09-46D5-8607-E3439C0534EF}
+	EndGlobalSection
+EndGlobal
