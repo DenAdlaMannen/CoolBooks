@@ -9,5 +9,6 @@ namespace Coolbooks.Data
 			: base(options)
 		{
 		}
+		public DbSet<Books> Books { get; set; }
 	}
 }
