@@ -8,7 +8,7 @@ CREATE TABLE Userinfo (
   Role nvarchar(50)
 );
 
-CREATE TABLE Users (
+CREATE TABLE SiteUser (
   UserID int NOT NULL PRIMARY KEY,
   UserinfoID int,
   Email nvarchar(50),
@@ -61,17 +61,17 @@ CREATE TABLE Author (
 // THEN RUN THE KEYS
 
 
-ALTER TABLE Users
+ALTER TABLE SiteUser
 ADD FOREIGN KEY (UserInfoID) REFERENCES Userinfo(UserInfoID);
 
 ALTER TABLE Review
 ADD FOREIGN KEY (BookID) REFERENCES Books(BookID);
 
 ALTER TABLE Review
-ADD FOREIGN KEY (UserID) REFERENCES Users(UserID);
+ADD FOREIGN KEY (UserID) REFERENCES SiteUser(UserID);
 
 ALTER TABLE Book
-ADD FOREIGN KEY (UserID) REFERENCES Users(UserID);
+ADD FOREIGN KEY (UserID) REFERENCES SiteUser(UserID);
 
 ALTER TABLE Book
 ADD FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID);
@@ -93,7 +93,7 @@ CREATE TABLE Userinfo (
   Role nvarchar(50)
 );
 
-CREATE TABLE User (
+CREATE TABLE SiteUser (
   UserID int IDENTITY (1,1) NOT NULL PRIMARY KEY,
   UserinfoID int,
   Email nvarchar(50),
@@ -139,17 +139,17 @@ CREATE TABLE Author (
 
 
 
-ALTER TABLE Users
+ALTER TABLE SiteUser
 ADD FOREIGN KEY (UserInfoID) REFERENCES Userinfo(UserInfoID);
 
 ALTER TABLE Review
 ADD FOREIGN KEY (BookID) REFERENCES Book(BookID);
 
 ALTER TABLE Review
-ADD FOREIGN KEY (UserID) REFERENCES Users(UserID);
+ADD FOREIGN KEY (UserID) REFERENCES SiteUser(UserID);
 
 ALTER TABLE Book
-ADD FOREIGN KEY (UserID) REFERENCES Users(UserID);
+ADD FOREIGN KEY (UserID) REFERENCES SiteUser(UserID);
 
 ALTER TABLE Book
 ADD FOREIGN KEY (AuthorID) REFERENCES Author(AuthorID);
