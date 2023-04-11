@@ -7,10 +7,10 @@ namespace Coolbooks.Pages
 {
 	public class IndexModel : PageModel
 	{
-		//private readonly ILogger<IndexModel> _logger;
 		private readonly CoolBookContext _db;
 
 		public IEnumerable<Books> Books { get; set; }
+
 		public IndexModel(CoolBookContext db)
 		{
 			_db = db;
@@ -20,20 +20,21 @@ namespace Coolbooks.Pages
 		{
 			Books = _db.Books;
 		}
+	}
 
 
 
 
 
-        //private readonly ApplicationDbContext _db;
-        //public IEnumerable<Category> Categories { get; set; }
-        //public IndexModel(ApplicationDbContext db)
-        //{
-        //    _db = db;
-        //}
-        //public void OnGet()
-        //{
-        //    Categories = _db.Categories;
-        //}
-    }
+
+	//private readonly ApplicationDbContext _db;
+	//public IEnumerable<Category> Categories { get; set; }
+	//public IndexModel(ApplicationDbContext db)
+	//{
+	//    _db = db;
+	//}
+	//public void OnGet()
+	//{
+	//    Categories = _db.Categories;
+	//}
 }

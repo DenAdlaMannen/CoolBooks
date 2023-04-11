@@ -20,13 +20,14 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <th>@item.title</th>
-                <th>@item.</th>
-                <th></th>
-            </tr>
-        }
+       @foreach (var book in Model.Books)
+{
+    <tr>
+        <td>@book.Title</td>
+        <td>@book.AuthorId</td>
+        <td>@book.GenreId</td>
+    </tr>
+}
+
     </tbody>
 </table>
