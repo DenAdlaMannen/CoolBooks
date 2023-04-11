@@ -234,6 +234,7 @@ values ('Paradise Lost', 'Where the angles fear to tread', '456123666', 0, '2022
 
 Go
 
-
+How to use SP add EXEC followed by spname ex
+EXEC spAddAuthors
 
 
