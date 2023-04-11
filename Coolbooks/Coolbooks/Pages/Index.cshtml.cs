@@ -20,5 +20,20 @@ namespace Coolbooks.Pages
 		{
 			Books = _db.Books;
 		}
-	}
+
+
+
+
+
+        //private readonly ApplicationDbContext _db;
+        //public IEnumerable<Category> Categories { get; set; }
+        //public IndexModel(ApplicationDbContext db)
+        //{
+        //    _db = db;
+        //}
+        //public void OnGet()
+        //{
+        //    Categories = _db.Categories;
+        //}
+    }
 }
