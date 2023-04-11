@@ -9,25 +9,3 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-<h1>All books</h1>
-
-<table width="100%" class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Genre</th>
-        </tr>
-    </thead>
-    <tbody>
-       @foreach (var book in Model.Books)
-{
-    <tr>
-        <td>@book.Title</td>
-        <td>@book.AuthorId</td>
-        <td>@book.GenreId</td>
-    </tr>
-}
-
-    </tbody>
-</table>
