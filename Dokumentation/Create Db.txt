@@ -48,7 +48,7 @@ CREATE TABLE Genres (
 CREATE TABLE Authors (
   AuthorID int NOT NULL PRIMARY KEY,
   Firstname nvarchar(250),
-  Efternamn nvarchar(250),
+  Lastname nvarchar(250),
   Created DateTime
 );
 
@@ -78,3 +78,162 @@ ADD FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID);
 
 ALTER TABLE Books
 ADD FOREIGN KEY (GenreID) REFERENCES Genres(GenreID);
+
+______________________________________________________________________
+UPDATED DB 2022-04-11
+
+
+CREATE TABLE Userinfo (
+  UserInfoID int IDENTITY (1,1) NOT NULL PRIMARY KEY,
+  Firstname nvarchar(50),
+  Lastname nvarchar(50),
+  Phone nvarchar(250),
+ Address nvarchar(250),
+  Created Date,
+  Role nvarchar(50)
+);
+
+CREATE TABLE Users (
+  UserID int IDENTITY (1,1) NOT NULL PRIMARY KEY,
+  UserinfoID int,
+  Email nvarchar(50),
+  PasswordHash nvarchar(250),
+  SecurityStamp nvarchar(250)
+);
+
+CREATE TABLE Reviews (
+  ReviewID int IDENTITY (1,1) NOT NULL PRIMARY KEY,
+  BookID INT,
+  UserID INT,
+  Title nvarchar(250),
+  Text nvarchar(250),
+  Rating nvarchar(250),
+  Created DateTime
+);
+
+CREATE TABLE Books (
+  BookID int IDENTITY (1,1) NOT NULL PRIMARY KEY,
+  UserID Int,
+  AuthorID Int,
+  GenreID Int,
+  Title nvarchar(250),
+  Description nvarchar(250),
+  ISBN nvarchar(250),
+  Imagepath nvarchar(250),
+  IsDeleted BIT,
+  Created Date
+);
+
+CREATE TABLE Genres (
+  GenreID int IDENTITY (1,1) NOT NULL PRIMARY KEY,
+  Name nvarchar(250),
+  Description nvarchar(250)
+);
+
+CREATE TABLE Authors (
+  AuthorID int IDENTITY (1,1) NOT NULL PRIMARY KEY,
+  Firstname nvarchar(250),
+  Lastname nvarchar(250),
+  Created Date
+);
+
+
+
+ALTER TABLE Users
+ADD FOREIGN KEY (UserInfoID) REFERENCES Userinfo(UserInfoID);
+
+ALTER TABLE Reviews
+ADD FOREIGN KEY (BookID) REFERENCES Books(BookID);
+
+ALTER TABLE Reviews
+ADD FOREIGN KEY (UserID) REFERENCES Users(UserID);
+
+ALTER TABLE Books
+ADD FOREIGN KEY (UserID) REFERENCES Users(UserID);
+
+ALTER TABLE Books
+ADD FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID);
+
+ALTER TABLE Books
+ADD FOREIGN KEY (GenreID) REFERENCES Genres(GenreID);
+
+
+
+
+//Stored procedures for sample data\\\
+
+Create PROCEDURE spAddAuthors
+AS
+
+Insert into Authors (Firstname, Lastname, Created)
+values ('J.R.R', 'Tolkien', '2022-11-30');
+
+Insert into Authors (Firstname, Lastname, Created)
+values ('William', 'Gibson', '2022-11-15');
+
+Insert into Authors (Firstname, Lastname, Created)
+values ('Torey', 'Hayden', '2022-10-12');
+
+Insert into Authors (Firstname, Lastname, Created)
+values ('Zadie', 'Smith', '2022-09-02');
+
+Insert into Authors (Firstname, Lastname, Created)
+values ('A.A', 'Milne', '2022-02-01');
+
+Insert into Authors (Firstname, Lastname, Created)
+values ('John', 'Milton', '2022-02-14');
+GO
+
+
+
+Create PROCEDURE spAddGenres
+AS
+Insert into Genres (Name)
+values ('Science Fiction')
+
+Insert into Genres (Name)
+values ('Fantasy')
+
+Insert into Genres (Name)
+values ('Children''s Books')
+
+Insert into Genres (Name)
+values ('Poetry')
+
+Insert into Genres (Name)
+values ('Short Stories')
+
+Insert into Genres (Name)
+values ('Non-Fiction')
+
+Go
+
+
+
+
+Create PROCEDURE spAddBooks
+AS
+
+Insert into Books (Title, Description, ISBN, IsDeleted, Created)
+values ('The Fellowship of the Ring', 'First of the Lord of the Rings trilogy', '789456', 0, '2022-01-01')
+
+Insert into Books (Title, Description, ISBN, IsDeleted, Created)
+values ('Neuromancer', 'Birth of Cyberpunk', '456123', 0, '2022-01-01')
+
+Insert into Books (Title, Description, ISBN, IsDeleted, Created)
+values ('One Child', 'child psychopathology, child abuse', '456123', 0,'2022-04-02')
+
+Insert into Books (Title, Description, ISBN, IsDeleted, Created)
+values ('Grand Union: Stories', '10 short stories', '45612311', 0, '2022-09-11')
+
+Insert into Books (Title, Description, ISBN, IsDeleted, Created)
+values ('Winnie-The-Pooh', 'Our beloved Pooh Bear', '4561231145', 0, '2022-10-03')
+
+Insert into Books (Title, Description, ISBN, IsDeleted, Created)
+values ('Paradise Lost', 'Where the angles fear to tread', '456123666', 0, '2022-10-03')
+
+Go
+
+
+
+
