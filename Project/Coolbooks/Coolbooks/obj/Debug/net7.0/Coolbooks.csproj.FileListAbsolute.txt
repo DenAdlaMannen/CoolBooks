@@ -84,3 +84,6 @@ C:\Skolprojekt\CB2\CoolBooks\Project\Coolbooks\Coolbooks\obj\Debug\net7.0\refint
 C:\Skolprojekt\CB2\CoolBooks\Project\Coolbooks\Coolbooks\obj\Debug\net7.0\Coolbooks.pdb
 C:\Skolprojekt\CB2\CoolBooks\Project\Coolbooks\Coolbooks\obj\Debug\net7.0\Coolbooks.genruntimeconfig.cache
 C:\Skolprojekt\CB2\CoolBooks\Project\Coolbooks\Coolbooks\obj\Debug\net7.0\ref\Coolbooks.dll
+C:\Users\derpe\Desktop\Skolarbete\CoolBooks\CoolBooks\Project\Coolbooks\Coolbooks\obj\Debug\net7.0\Coolbooks.dll
+C:\Users\derpe\Desktop\Skolarbete\CoolBooks\CoolBooks\Project\Coolbooks\Coolbooks\obj\Debug\net7.0\refint\Coolbooks.dll
+C:\Users\derpe\Desktop\Skolarbete\CoolBooks\CoolBooks\Project\Coolbooks\Coolbooks\obj\Debug\net7.0\Coolbooks.pdb
