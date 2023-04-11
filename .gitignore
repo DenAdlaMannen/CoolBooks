@@ -359,3 +359,5 @@ CB/CB/Data/Migrations/00000000000000_CreateIdentitySchema.cs
 Coolbooks/Coolbooks/appsettings.json
 Coolbooks/Coolbooks/appsettings.json
 Coolbooks/Coolbooks/appsettings.json
+Coolbooks/Coolbooks/appsettings.Development.json
+Coolbooks/Coolbooks/appsettings.Development.json
