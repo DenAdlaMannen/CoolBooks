@@ -8,10 +8,10 @@ namespace Coolbooks.Pages
 	public class IndexModel : PageModel
 	{
 		//private readonly ILogger<IndexModel> _logger;
-		private readonly ApplicationDbContext _db;
+		private readonly CoolBookContext _db;
 
 		public IEnumerable<Books> Books { get; set; }
-		public IndexModel(ApplicationDbContext db)
+		public IndexModel(CoolBookContext db)
 		{
 			_db = db;
 		}
