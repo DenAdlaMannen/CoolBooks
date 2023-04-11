@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Coolbooks.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Coolbooks.Data
@@ -9,5 +10,6 @@ namespace Coolbooks.Data
 			: base(options)
 		{
 		}
+		public DbSet<Books> Books { get; set; }
 	}
 }

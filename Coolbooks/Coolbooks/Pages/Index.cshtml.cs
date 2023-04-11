@@ -1,4 +1,5 @@
-﻿using Coolbooks.Models;
+﻿using Coolbooks.Data;
+using Coolbooks.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -7,17 +8,32 @@ namespace Coolbooks.Pages
 	public class IndexModel : PageModel
 	{
 		//private readonly ILogger<IndexModel> _logger;
-		private readonly ApplicationDbcontext _db;
+		private readonly CoolBookContext _db;
 
 		public IEnumerable<Books> Books { get; set; }
-		public IndexModel(ApplicationDbcontext db)
+		public IndexModel(CoolBookContext db)
 		{
 			_db = db;
 		}
 
 		public void OnGet()
 		{
-			Books = _db.
+			Books = _db.Books;
 		}
-	}
+
+
+
+
+
+        //private readonly ApplicationDbContext _db;
+        //public IEnumerable<Category> Categories { get; set; }
+        //public IndexModel(ApplicationDbContext db)
+        //{
+        //    _db = db;
+        //}
+        //public void OnGet()
+        //{
+        //    Categories = _db.Categories;
+        //}
+    }
 }
