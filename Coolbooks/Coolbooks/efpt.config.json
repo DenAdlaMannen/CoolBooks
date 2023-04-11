@@ -15,31 +15,31 @@
    "SelectedToBeGenerated": 0,
    "Tables": [
       {
-         "Name": "[dbo].[Authors]",
+         "Name": "[dbo].[Author]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Books]",
+         "Name": "[dbo].[Book]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Genres]",
+         "Name": "[dbo].[Genre]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Reviews]",
+         "Name": "[dbo].[Review]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SiteUser]",
          "ObjectType": 0
       },
       {
          "Name": "[dbo].[Userinfo]",
          "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Users]",
-         "ObjectType": 0
       }
    ],
-   "UiHint": "DESKTOP-TRBSHSJ\\SQLEXPRESS.CoolBook",
+   "UiHint": "EMANUEL.CoolBooks",
    "UncountableWords": null,
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
@@ -48,7 +48,7 @@
    "UseFluentApiOnly": true,
    "UseHandleBars": false,
    "UseHierarchyId": false,
-   "UseInflector": false,
+   "UseInflector": true,
    "UseLegacyPluralizer": false,
    "UseManyToManyEntity": false,
    "UseNoDefaultConstructor": false,

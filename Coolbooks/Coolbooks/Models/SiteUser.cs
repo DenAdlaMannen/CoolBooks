@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Coolbooks.Models;
 
-public partial class Users
+public partial class SiteUser
 {
     public int UserId { get; set; }
 
@@ -17,9 +17,9 @@ public partial class Users
 
     public string SecurityStamp { get; set; }
 
-    public virtual ICollection<Books> Books { get; } = new List<Books>();
+    public virtual ICollection<Book> Books { get; } = new List<Book>();
 
-    public virtual ICollection<Reviews> Reviews { get; } = new List<Reviews>();
+    public virtual ICollection<Review> Reviews { get; } = new List<Review>();
 
     public virtual Userinfo Userinfo { get; set; }
 }

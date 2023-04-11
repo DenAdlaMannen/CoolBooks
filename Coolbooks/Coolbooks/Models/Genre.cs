@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Coolbooks.Models;
 
-public partial class Genres
+public partial class Genre
 {
     public int GenreId { get; set; }
 
@@ -13,5 +13,5 @@ public partial class Genres
 
     public string Description { get; set; }
 
-    public virtual ICollection<Books> Books { get; } = new List<Books>();
+    public virtual ICollection<Book> Books { get; } = new List<Book>();
 }

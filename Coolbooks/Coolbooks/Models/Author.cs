@@ -5,15 +5,15 @@ using System.Collections.Generic;
 
 namespace Coolbooks.Models;
 
-public partial class Authors
+public partial class Author
 {
     public int AuthorId { get; set; }
 
     public string Firstname { get; set; }
 
-    public string Efternamn { get; set; }
+    public string Lastname { get; set; }
 
     public DateTime? Created { get; set; }
 
-    public virtual ICollection<Books> Books { get; } = new List<Books>();
+    public virtual ICollection<Book> Books { get; } = new List<Book>();
 }

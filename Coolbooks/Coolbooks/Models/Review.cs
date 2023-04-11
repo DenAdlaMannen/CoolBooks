@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Coolbooks.Models;
 
-public partial class Reviews
+public partial class Review
 {
     public int ReviewId { get; set; }
 
@@ -21,7 +21,7 @@ public partial class Reviews
 
     public DateTime? Created { get; set; }
 
-    public virtual Books Book { get; set; }
+    public virtual Book Book { get; set; }
 
-    public virtual Users User { get; set; }
+    public virtual SiteUser User { get; set; }
 }

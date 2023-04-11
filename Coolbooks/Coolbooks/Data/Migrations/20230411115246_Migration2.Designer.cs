@@ -4,6 +4,7 @@ using Coolbooks.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Coolbooks.Data.Migrations
 {
     [DbContext(typeof(CoolBookContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230411115246_Migration2")]
+    partial class Migration2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,44 +28,38 @@ namespace Coolbooks.Data.Migrations
             modelBuilder.Entity("Coolbooks.Models.Author", b =>
                 {
                     b.Property<int>("AuthorId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("AuthorID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AuthorId"));
-
                     b.Property<DateTime?>("Created")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Efternamn")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Firstname")
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<string>("Lastname")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
                     b.HasKey("AuthorId")
-                        .HasName("PK__Author__70DAFC14AE91D91A");
+                        .HasName("PK__Authors__70DAFC146B7E6384");
 
-                    b.ToTable("Author", (string)null);
+                    b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("Coolbooks.Models.Book", b =>
                 {
                     b.Property<int>("BookId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("BookID");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookId"));
 
                     b.Property<int?>("AuthorId")
                         .HasColumnType("int")
                         .HasColumnName("AuthorID");
 
                     b.Property<DateTime?>("Created")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Description")
                         .HasMaxLength(250)
@@ -93,7 +90,7 @@ namespace Coolbooks.Data.Migrations
                         .HasColumnName("UserID");
 
                     b.HasKey("BookId")
-                        .HasName("PK__Book__3DE0C22748413C10");
+                        .HasName("PK__Books__3DE0C2274E735BF0");
 
                     b.HasIndex("AuthorId");
 
@@ -101,17 +98,14 @@ namespace Coolbooks.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Book", (string)null);
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("Coolbooks.Models.Genre", b =>
                 {
                     b.Property<int>("GenreId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("GenreID");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GenreId"));
 
                     b.Property<string>("Description")
                         .HasMaxLength(250)
@@ -122,19 +116,16 @@ namespace Coolbooks.Data.Migrations
                         .HasColumnType("nvarchar(250)");
 
                     b.HasKey("GenreId")
-                        .HasName("PK__Genre__0385055E0007A1DD");
+                        .HasName("PK__Genres__0385055E97CE0777");
 
-                    b.ToTable("Genre", (string)null);
+                    b.ToTable("Genres");
                 });
 
             modelBuilder.Entity("Coolbooks.Models.Review", b =>
                 {
                     b.Property<int>("ReviewId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("ReviewID");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewId"));
 
                     b.Property<int?>("BookId")
                         .HasColumnType("int")
@@ -160,23 +151,20 @@ namespace Coolbooks.Data.Migrations
                         .HasColumnName("UserID");
 
                     b.HasKey("ReviewId")
-                        .HasName("PK__Review__74BC79AE99D4781C");
+                        .HasName("PK__Reviews__74BC79AE3238230A");
 
                     b.HasIndex("BookId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Review", (string)null);
+                    b.ToTable("Reviews");
                 });
 
-            modelBuilder.Entity("Coolbooks.Models.SiteUser", b =>
+            modelBuilder.Entity("Coolbooks.Models.User", b =>
                 {
                     b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("UserID");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
                     b.Property<string>("Email")
                         .HasMaxLength(50)
@@ -195,28 +183,25 @@ namespace Coolbooks.Data.Migrations
                         .HasColumnName("UserinfoID");
 
                     b.HasKey("UserId")
-                        .HasName("PK__SiteUser__1788CCAC06EA2B9C");
+                        .HasName("PK__Users__1788CCACA057E8B4");
 
                     b.HasIndex("UserinfoId");
 
-                    b.ToTable("SiteUser", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Coolbooks.Models.Userinfo", b =>
                 {
                     b.Property<int>("UserInfoId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("UserInfoID");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserInfoId"));
 
                     b.Property<string>("Address")
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<DateTime?>("Created")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Firstname")
                         .HasMaxLength(50)
@@ -235,9 +220,9 @@ namespace Coolbooks.Data.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("UserInfoId")
-                        .HasName("PK__Userinfo__D07EF2C4A50BDB5F");
+                        .HasName("PK__Userinfo__D07EF2C4D00683BD");
 
-                    b.ToTable("Userinfo", (string)null);
+                    b.ToTable("Userinfo");
                 });
 
             modelBuilder.Entity("Coolbooks.Models.Book", b =>
@@ -245,17 +230,17 @@ namespace Coolbooks.Data.Migrations
                     b.HasOne("Coolbooks.Models.Author", "Author")
                         .WithMany("Books")
                         .HasForeignKey("AuthorId")
-                        .HasConstraintName("FK__Book__AuthorID__31EC6D26");
+                        .HasConstraintName("FK__Books__AuthorID__44FF419A");
 
                     b.HasOne("Coolbooks.Models.Genre", "Genre")
                         .WithMany("Books")
                         .HasForeignKey("GenreId")
-                        .HasConstraintName("FK__Book__GenreID__32E0915F");
+                        .HasConstraintName("FK__Books__GenreID__45F365D3");
 
-                    b.HasOne("Coolbooks.Models.SiteUser", "User")
+                    b.HasOne("Coolbooks.Models.User", "User")
                         .WithMany("Books")
                         .HasForeignKey("UserId")
-                        .HasConstraintName("FK__Book__UserID__30F848ED");
+                        .HasConstraintName("FK__Books__UserID__440B1D61");
 
                     b.Navigation("Author");
 
@@ -269,24 +254,24 @@ namespace Coolbooks.Data.Migrations
                     b.HasOne("Coolbooks.Models.Book", "Book")
                         .WithMany("Reviews")
                         .HasForeignKey("BookId")
-                        .HasConstraintName("FK__Review__BookID__2F10007B");
+                        .HasConstraintName("FK__Reviews__BookID__4222D4EF");
 
-                    b.HasOne("Coolbooks.Models.SiteUser", "User")
+                    b.HasOne("Coolbooks.Models.User", "User")
                         .WithMany("Reviews")
                         .HasForeignKey("UserId")
-                        .HasConstraintName("FK__Review__UserID__300424B4");
+                        .HasConstraintName("FK__Reviews__UserID__4316F928");
 
                     b.Navigation("Book");
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Coolbooks.Models.SiteUser", b =>
+            modelBuilder.Entity("Coolbooks.Models.User", b =>
                 {
                     b.HasOne("Coolbooks.Models.Userinfo", "Userinfo")
-                        .WithMany("SiteUsers")
+                        .WithMany("Users")
                         .HasForeignKey("UserinfoId")
-                        .HasConstraintName("FK__SiteUser__Userin__2E1BDC42");
+                        .HasConstraintName("FK__Users__UserinfoI__412EB0B6");
 
                     b.Navigation("Userinfo");
                 });
@@ -306,7 +291,7 @@ namespace Coolbooks.Data.Migrations
                     b.Navigation("Books");
                 });
 
-            modelBuilder.Entity("Coolbooks.Models.SiteUser", b =>
+            modelBuilder.Entity("Coolbooks.Models.User", b =>
                 {
                     b.Navigation("Books");
 
@@ -315,7 +300,7 @@ namespace Coolbooks.Data.Migrations
 
             modelBuilder.Entity("Coolbooks.Models.Userinfo", b =>
                 {
-                    b.Navigation("SiteUsers");
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

@@ -13,41 +13,41 @@ public partial class CoolBookContext : DbContext
     {
     }
 
-    public virtual DbSet<Authors> Authors { get; set; }
+    public virtual DbSet<Author> Authors { get; set; }
 
-    public virtual DbSet<Books> Books { get; set; }
+    public virtual DbSet<Book> Books { get; set; }
 
-    public virtual DbSet<Genres> Genres { get; set; }
+    public virtual DbSet<Genre> Genres { get; set; }
 
-    public virtual DbSet<Reviews> Reviews { get; set; }
+    public virtual DbSet<Review> Reviews { get; set; }
 
-    public virtual DbSet<Userinfo> Userinfo { get; set; }
+    public virtual DbSet<SiteUser> SiteUsers { get; set; }
 
-    public virtual DbSet<Users> Users { get; set; }
+    public virtual DbSet<Userinfo> Userinfos { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Authors>(entity =>
+        modelBuilder.Entity<Author>(entity =>
         {
-            entity.HasKey(e => e.AuthorId).HasName("PK__Authors__70DAFC146B7E6384");
+            entity.HasKey(e => e.AuthorId).HasName("PK__Author__70DAFC14AE91D91A");
 
-            entity.Property(e => e.AuthorId)
-                .ValueGeneratedNever()
-                .HasColumnName("AuthorID");
-            entity.Property(e => e.Created).HasColumnType("datetime");
-            entity.Property(e => e.Efternamn).HasMaxLength(250);
+            entity.ToTable("Author");
+
+            entity.Property(e => e.AuthorId).HasColumnName("AuthorID");
+            entity.Property(e => e.Created).HasColumnType("date");
             entity.Property(e => e.Firstname).HasMaxLength(250);
+            entity.Property(e => e.Lastname).HasMaxLength(250);
         });
 
-        modelBuilder.Entity<Books>(entity =>
+        modelBuilder.Entity<Book>(entity =>
         {
-            entity.HasKey(e => e.BookId).HasName("PK__Books__3DE0C2274E735BF0");
+            entity.HasKey(e => e.BookId).HasName("PK__Book__3DE0C22748413C10");
 
-            entity.Property(e => e.BookId)
-                .ValueGeneratedNever()
-                .HasColumnName("BookID");
+            entity.ToTable("Book");
+
+            entity.Property(e => e.BookId).HasColumnName("BookID");
             entity.Property(e => e.AuthorId).HasColumnName("AuthorID");
-            entity.Property(e => e.Created).HasColumnType("datetime");
+            entity.Property(e => e.Created).HasColumnType("date");
             entity.Property(e => e.Description).HasMaxLength(250);
             entity.Property(e => e.GenreId).HasColumnName("GenreID");
             entity.Property(e => e.Imagepath).HasMaxLength(250);
@@ -59,35 +59,35 @@ public partial class CoolBookContext : DbContext
 
             entity.HasOne(d => d.Author).WithMany(p => p.Books)
                 .HasForeignKey(d => d.AuthorId)
-                .HasConstraintName("FK__Books__AuthorID__44FF419A");
+                .HasConstraintName("FK__Book__AuthorID__31EC6D26");
 
             entity.HasOne(d => d.Genre).WithMany(p => p.Books)
                 .HasForeignKey(d => d.GenreId)
-                .HasConstraintName("FK__Books__GenreID__45F365D3");
+                .HasConstraintName("FK__Book__GenreID__32E0915F");
 
             entity.HasOne(d => d.User).WithMany(p => p.Books)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__Books__UserID__440B1D61");
+                .HasConstraintName("FK__Book__UserID__30F848ED");
         });
 
-        modelBuilder.Entity<Genres>(entity =>
+        modelBuilder.Entity<Genre>(entity =>
         {
-            entity.HasKey(e => e.GenreId).HasName("PK__Genres__0385055E97CE0777");
+            entity.HasKey(e => e.GenreId).HasName("PK__Genre__0385055E0007A1DD");
 
-            entity.Property(e => e.GenreId)
-                .ValueGeneratedNever()
-                .HasColumnName("GenreID");
+            entity.ToTable("Genre");
+
+            entity.Property(e => e.GenreId).HasColumnName("GenreID");
             entity.Property(e => e.Description).HasMaxLength(250);
             entity.Property(e => e.Name).HasMaxLength(250);
         });
 
-        modelBuilder.Entity<Reviews>(entity =>
+        modelBuilder.Entity<Review>(entity =>
         {
-            entity.HasKey(e => e.ReviewId).HasName("PK__Reviews__74BC79AE3238230A");
+            entity.HasKey(e => e.ReviewId).HasName("PK__Review__74BC79AE99D4781C");
 
-            entity.Property(e => e.ReviewId)
-                .ValueGeneratedNever()
-                .HasColumnName("ReviewID");
+            entity.ToTable("Review");
+
+            entity.Property(e => e.ReviewId).HasColumnName("ReviewID");
             entity.Property(e => e.BookId).HasColumnName("BookID");
             entity.Property(e => e.Created).HasColumnType("datetime");
             entity.Property(e => e.Rating).HasMaxLength(250);
@@ -97,43 +97,43 @@ public partial class CoolBookContext : DbContext
 
             entity.HasOne(d => d.Book).WithMany(p => p.Reviews)
                 .HasForeignKey(d => d.BookId)
-                .HasConstraintName("FK__Reviews__BookID__4222D4EF");
+                .HasConstraintName("FK__Review__BookID__2F10007B");
 
             entity.HasOne(d => d.User).WithMany(p => p.Reviews)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__Reviews__UserID__4316F928");
+                .HasConstraintName("FK__Review__UserID__300424B4");
         });
 
-        modelBuilder.Entity<Userinfo>(entity =>
+        modelBuilder.Entity<SiteUser>(entity =>
         {
-            entity.HasKey(e => e.UserInfoId).HasName("PK__Userinfo__D07EF2C4D00683BD");
+            entity.HasKey(e => e.UserId).HasName("PK__SiteUser__1788CCAC06EA2B9C");
 
-            entity.Property(e => e.UserInfoId)
-                .ValueGeneratedNever()
-                .HasColumnName("UserInfoID");
-            entity.Property(e => e.Address).HasMaxLength(250);
-            entity.Property(e => e.Created).HasColumnType("datetime");
-            entity.Property(e => e.Firstname).HasMaxLength(50);
-            entity.Property(e => e.Lastname).HasMaxLength(50);
-            entity.Property(e => e.Phone).HasMaxLength(250);
-            entity.Property(e => e.Role).HasMaxLength(50);
-        });
+            entity.ToTable("SiteUser");
 
-        modelBuilder.Entity<Users>(entity =>
-        {
-            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CCACA057E8B4");
-
-            entity.Property(e => e.UserId)
-                .ValueGeneratedNever()
-                .HasColumnName("UserID");
+            entity.Property(e => e.UserId).HasColumnName("UserID");
             entity.Property(e => e.Email).HasMaxLength(50);
             entity.Property(e => e.PasswordHash).HasMaxLength(250);
             entity.Property(e => e.SecurityStamp).HasMaxLength(250);
             entity.Property(e => e.UserinfoId).HasColumnName("UserinfoID");
 
-            entity.HasOne(d => d.Userinfo).WithMany(p => p.Users)
+            entity.HasOne(d => d.Userinfo).WithMany(p => p.SiteUsers)
                 .HasForeignKey(d => d.UserinfoId)
-                .HasConstraintName("FK__Users__UserinfoI__412EB0B6");
+                .HasConstraintName("FK__SiteUser__Userin__2E1BDC42");
+        });
+
+        modelBuilder.Entity<Userinfo>(entity =>
+        {
+            entity.HasKey(e => e.UserInfoId).HasName("PK__Userinfo__D07EF2C4A50BDB5F");
+
+            entity.ToTable("Userinfo");
+
+            entity.Property(e => e.UserInfoId).HasColumnName("UserInfoID");
+            entity.Property(e => e.Address).HasMaxLength(250);
+            entity.Property(e => e.Created).HasColumnType("date");
+            entity.Property(e => e.Firstname).HasMaxLength(50);
+            entity.Property(e => e.Lastname).HasMaxLength(50);
+            entity.Property(e => e.Phone).HasMaxLength(250);
+            entity.Property(e => e.Role).HasMaxLength(50);
         });
 
         OnModelCreatingPartial(modelBuilder);

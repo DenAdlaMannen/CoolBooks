@@ -15,4 +15,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Books\" />
+    <Folder Include="Pages\Authors\" />
+    <Folder Include="Pages\Genres\" />
+    <Folder Include="Pages\Reviews\" />
+  </ItemGroup>
+
 </Project>

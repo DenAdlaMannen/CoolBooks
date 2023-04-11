@@ -21,5 +21,5 @@ public partial class Userinfo
 
     public string Role { get; set; }
 
-    public virtual ICollection<Users> Users { get; } = new List<Users>();
+    public virtual ICollection<SiteUser> SiteUsers { get; } = new List<SiteUser>();
 }

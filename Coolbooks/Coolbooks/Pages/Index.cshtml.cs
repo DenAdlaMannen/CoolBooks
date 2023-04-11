@@ -9,7 +9,7 @@ namespace Coolbooks.Pages
 	{
 		private readonly CoolBookContext _db;
 
-		public IEnumerable<Books> Books { get; set; }
+		public IEnumerable<Book> Books { get; set; }
 
 		public IndexModel(CoolBookContext db)
 		{
